@@ -27,10 +27,26 @@ end
 
 describe('the path to viewing details of individual list item', {:type => :feature}) do
   it('allows user to click on list name and and view its details') do
-    list = List.new({:name => 'Housework', :id => nil})
-    list.save()
+    test_list = List.new({:name => 'Housework', :id => nil})
+    test_list.save()
+    test_task = Task.new({:description => 'vacuum', :list_id => test_list.id()})
+    test_task.save()
     visit('/lists')
-    click_link('Housework')
-    expect(page).to have_content('Add New Task')
+    click_link(test_list.name())
+    expect(page).to have_content(test_task.description)
+  end
+end
+
+describe('path to add a new task', {:type => :feature}) do
+  it('allows the user to add a new task') do
+    test_list = List.new({:name => 'schoolwork', :id => nil})
+    test_list.save()
+    visit("/lists/#{test_list.id()}")
+
+    click_link('Add New Task')
+    fill_in('description', :with => 'read')
+    click_button('Add Task')
+    expect(page).to have_content('Success!')
+
   end
 end

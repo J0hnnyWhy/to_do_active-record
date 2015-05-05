@@ -1,8 +1,18 @@
 <h1>Here are the tasks for <%= @list.name() %></h1>
 
 
+<% if @list.tasks().any?() %>
+
+  <ul>
+  <% @list.tasks().each() do |task| %>
+  <li><%= task.description() %></li>
+  <% end %>
+  </ul>
+<% else %>
+ <p>There are no tasks yet.</p>
+ <% end %>
 
 <div class="container">
   <a href="/lists">Back To All Lists</a>
-  <a href="/tasks/new">Add New Task</a>
+  <a href="/lists/<%= @list.id() %>/tasks/new">Add New Task</a>
 </div>

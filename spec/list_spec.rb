@@ -39,4 +39,33 @@ describe(List) do
       expect(list1).to(eq(list2))
     end
   end
+  describe(".find") do
+    it("returns a list item by its id") do
+      test_list = List.new({:name => "Moose", :id => nil})
+      test_list.save()
+      test_list2 = List.new({:name => "Mouse", :id => nil})
+      test_list2.save()
+      expect(List.find(test_list2.id())).to(eq(test_list2))
+    end
+  end
+  describe("#tasks") do
+    it("returns an array of tasks associated with a particular list_id") do
+      test_list = List.new({:name => "Yardwork", :id => nil})
+      test_list.save()
+      test_task = Task.new({:description => "rake", :list_id => test_list.id(), :id => nil})
+      test_task.save()
+      expect(test_list.tasks()).to(eq([test_task]))
+    end
+  end
+
+  # describe("#add_task") do
+  #   it("adds a task to the list") do
+  #     test_list = List.new({:name => "Moose", :id => nil})
+  #     test_task = Task.new({:description => "Sweep", :list_id => test_list.id(), :id => nil}
+  #     test_list.add_task(test_task)
+  #     expect(test_list.tasks()).to eq([test_task])
+  #
+  # end
+  # end
+
 end
