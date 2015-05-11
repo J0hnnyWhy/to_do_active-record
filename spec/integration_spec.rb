@@ -5,7 +5,7 @@
 # Capybara.app = Sinatra::Application
 # set(:show_exceptions, false)
 #
-# describe('path to adding a new list', {:type => :feature}) do
+# describe('path to making/editing lists and making tasks', {:type => :feature}) do
 #   it('allows user to add new list from the home page') do
 #     visit('/')
 #     click_link('Add New List')
@@ -14,7 +14,7 @@
 #     expect(page).to have_content('Success!')
 #   end
 # end
-#
+
 # describe('path to viewing all lists', {:type => :feature}) do
 #   it('allows user to click link and view all lists') do
 #     list = List.new({:name => 'Epicodus Homework', :id => nil})
@@ -49,4 +49,4 @@
 #     expect(page).to have_content('Success!')
 #
 #   end
-# end
+#end

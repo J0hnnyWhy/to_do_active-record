@@ -6,5 +6,14 @@
   <label for="description">Edit your task:</label>
   <input id="description" name="description" type="text">
 
-  <button class="submit">Add Task</button>
+  <button class="submit">edit Task</button>
+</form>
+<br>
+
+<p>Delete a task</p>
+<form action="/tasks/<%= @task.id() %>" method="post">
+  <label for="deleted">Remove task from list: </label>
+  <input name="_method" type="hidden" value="delete" id="deleted">
+
+  <button type="submit">Delete task</button>
 </form>

@@ -2,15 +2,14 @@
 
 
 <% if @tasks.any?() %>
-
   <ul>
-  <% @tasks.each() do |task| %>
-  <li><%= task.description() %></li>
-  <% end %>
+    <% @tasks.each() do |task| %>
+      <li><a href='/tasks/<%= task.id() %>/edit'><%= task.description() %></a></li>
+    <% end %>
   </ul>
 <% else %>
- <p>There are no tasks yet.</p>
- <% end %>
+  <p>There are no tasks yet.</p>
+<% end %>
 
 <div class="container">
   <a href="/lists">Back To All Lists</a>

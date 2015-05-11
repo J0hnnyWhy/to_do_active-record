@@ -8,3 +8,13 @@
 
   <button class="submit">Update List</button>
 </form>
+
+
+<p>Delete a list</p>
+<br>
+<form action="/lists/<%= @list.id() %>" method="post">
+  <label for="deleted">Remove list: </label>
+  <input name="_method" type="hidden" value="delete" id="deleted">
+
+  <button type="submit">Delete List</button>
+</form>
