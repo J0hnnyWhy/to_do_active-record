@@ -1,10 +1,10 @@
 <h1>Here are the tasks for <%= @list.name() %></h1>
 
 
-<% if @list.tasks().any?() %>
+<% if @tasks.any?() %>
 
   <ul>
-  <% @list.tasks().each() do |task| %>
+  <% @tasks.each() do |task| %>
   <li><%= task.description() %></li>
   <% end %>
   </ul>

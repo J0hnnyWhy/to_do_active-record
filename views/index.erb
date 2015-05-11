@@ -1,6 +1,13 @@
-<h1>Welcome to the To Do App</h1>
+<h1>To Do</h1>
 
-<div class="container">
-    <a href="/lists">View All Lists</a>
-    <a href="/lists/new">Add New List</a>
-</div>
+<h3>Here are all your lists</h3>
+<br>
+<ul>
+<% @lists.each() do |list| %>
+    <li><a href="/lists/<%= list.id() %>"><%= list.name %></a>
+      <br><a href="/lists/<%= list.id() %>/edit">Update this list</a></li>
+  <% end %>
+</ul>
+
+
+<p><a href="<%/lists/new"</a>Add new list</p>
